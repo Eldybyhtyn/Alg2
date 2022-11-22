@@ -1,0 +1,15 @@
+C:\prog c#\Alg2\bin\Debug\net7.0\Alg2.exe
+C:\prog c#\Alg2\bin\Debug\net7.0\Alg2.deps.json
+C:\prog c#\Alg2\bin\Debug\net7.0\Alg2.runtimeconfig.json
+C:\prog c#\Alg2\bin\Debug\net7.0\Alg2.dll
+C:\prog c#\Alg2\bin\Debug\net7.0\Alg2.pdb
+C:\prog c#\Alg2\obj\Debug\net7.0\Alg2.csproj.AssemblyReference.cache
+C:\prog c#\Alg2\obj\Debug\net7.0\Alg2.GeneratedMSBuildEditorConfig.editorconfig
+C:\prog c#\Alg2\obj\Debug\net7.0\Alg2.AssemblyInfoInputs.cache
+C:\prog c#\Alg2\obj\Debug\net7.0\Alg2.AssemblyInfo.cs
+C:\prog c#\Alg2\obj\Debug\net7.0\Alg2.csproj.CoreCompileInputs.cache
+C:\prog c#\Alg2\obj\Debug\net7.0\Alg2.dll
+C:\prog c#\Alg2\obj\Debug\net7.0\refint\Alg2.dll
+C:\prog c#\Alg2\obj\Debug\net7.0\Alg2.pdb
+C:\prog c#\Alg2\obj\Debug\net7.0\Alg2.genruntimeconfig.cache
+C:\prog c#\Alg2\obj\Debug\net7.0\ref\Alg2.dll

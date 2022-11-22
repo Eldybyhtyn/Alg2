@@ -27,12 +27,23 @@ namespace Lol {
         }
 
         public void Del_V(string name) {
+
             int index = names.IndexOf(name);
+            for (int i = 0; i < table[index].Count; ++i) {
+                
+            }
             table.RemoveAt(index);
         }
 
         public void Del_E(int first, int second) {
-            //table[first - 1][]
+            for (int i = 0; i < table.Count; ++i) {
+                if (table[first - 1][i] == -table[second - 1][i]) {
+                    for (int j = 0; j < table.Count; ++j) {
+                        table[j].RemoveAt(i);
+                    } 
+                    break;
+                }
+            }
         }
 
         public void Edit_E(int first, int second, int cost) {

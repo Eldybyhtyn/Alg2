@@ -17,7 +17,7 @@ namespace Lol {
             hi.ShowGraph();
             System.Console.WriteLine();
             hi.Del_E(1, 2);
-            hi.Del_V("first");
+            //hi.Del_V("first");
             hi.ShowGraph();
         }
 
