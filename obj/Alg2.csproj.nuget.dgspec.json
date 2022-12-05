@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\prog c#\\Alg2\\Alg2.csproj": {}
+    "C:\\prog c#\\alg2\\Alg2.csproj": {}
   },
   "projects": {
-    "C:\\prog c#\\Alg2\\Alg2.csproj": {
+    "C:\\prog c#\\alg2\\Alg2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\prog c#\\Alg2\\Alg2.csproj",
+        "projectUniqueName": "C:\\prog c#\\alg2\\Alg2.csproj",
         "projectName": "Alg2",
-        "projectPath": "C:\\prog c#\\Alg2\\Alg2.csproj",
+        "projectPath": "C:\\prog c#\\alg2\\Alg2.csproj",
         "packagesPath": "C:\\Users\\name6\\.nuget\\packages\\",
-        "outputPath": "C:\\prog c#\\Alg2\\obj\\",
+        "outputPath": "C:\\prog c#\\alg2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\name6\\AppData\\Roaming\\NuGet\\NuGet.Config",

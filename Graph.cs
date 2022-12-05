@@ -47,11 +47,22 @@ namespace Lol {
         }
 
         public void Edit_E(int first, int second, int cost) {
-            //table[first - 1][]
+            for (int i = 0; i < table.Count; ++i) {
+                if (table[first - 1][i] == -table[second - 1][i]) {
+                    table[first - 1][i] = cost;
+                    table[second - 1][i] = -cost;
+                    break;
+                }
+            }
+        }
+
+        public void Edit_V(string name, int newMark) {
+            
         }
 
         public void ShowGraph() {
             for (int i = 0; i < table.Count; ++i) {
+                //Console.Write(names[i]);
                 for (int j = 0; j < table[i].Count; ++j) {
                     Console.Write(Convert.ToString(table[i][j]) + " ");
                 }
