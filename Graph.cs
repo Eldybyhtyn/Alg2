@@ -7,6 +7,7 @@ namespace Lol {
         List<List<int>> table = new List<List<int>>();
         List<string> names = new List<string>();
         List<bool> marks = new List<bool>();
+        List<string> currentPath = new List<string>(), simplePaths = new List<string>();
         public Graph() {
             countOfArsc = 0;
         }
@@ -75,9 +76,32 @@ namespace Lol {
             }
         }
 
+        private void PossiblePaths(string currentVertex) { // List<string>
+            List<string> paths = new List<string>();
+            List<int> currentList = table[names.IndexOf(currentVertex)];
+            for (int i = 0; i < currentList.Count; ++i) {
+                if (currentList[i] != 0) {
+                    for (int j = 0; j < table.Count; ++j) {
+     //                   if (table[j][i] == )
+                    }
+                }
+            }
+        }
+
         // private List<string> DFS(string first, string last) {
             
             
+        //     if (marks[names.IndexOf(first)]) return;
+            
+        //     marks[names.IndexOf(first)] = true;
+        //     currentPath.Add(first);
+        //     if (marks[names.IndexOf(first)] == marks[names.IndexOf(last)]) {
+        //         simplePaths.Add(currentPath);
+        //         marks[names.IndexOf(first)] = false;
+        //         currentPath.RemoveAt(currentPath.Count - 1);
+        //         return;
+        //     }
+        //     for ()
 
         // }
 
