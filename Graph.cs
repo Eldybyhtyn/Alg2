@@ -4,10 +4,12 @@ namespace Lol {
 
     public class Graph {
         int countOfArsc;
+        public int countOfPaths = 0;
         List<List<int>> table = new List<List<int>>();
         List<string> names = new List<string>();
         List<bool> marks = new List<bool>();
-        List<string> currentPath = new List<string>(), simplePaths = new List<string>();
+        List<string> currentPath = new List<string>();
+        List<List<string>> simplePaths = new List<List<string>>();
         public Graph() {
             countOfArsc = 0;
         }
@@ -68,46 +70,62 @@ namespace Lol {
             marks[index] = newMark;
         }
 
-        public void FindSimplePath() {
-            for (int i = 0; i < table.Count; ++i) {
-                for (int j = 0; j < table[i].Count; ++j) {
-                    //if ()
+        public int FindSimplePath() {
+            for (int i = 0; i < names.Count; ++i) {
+                for (int j = 0; j < names.Count; ++j) {
+                    if (i == j) continue;
+                    simplePaths.Clear();
+                    currentPath.Clear();
+                    DFS(names[i], names[j]);
+                    
+                    countOfPaths += getSimplePaths().Count;
+                        
+                    
                 }
             }
+            return countOfPaths;
         }
 
-        private void PossiblePaths(string currentVertex) { // List<string>
+        public List<string> PossiblePaths(string currentVertex) {
             List<string> paths = new List<string>();
             List<int> currentList = table[names.IndexOf(currentVertex)];
             for (int i = 0; i < currentList.Count; ++i) {
-                if (currentList[i] != 0) {
+                if (currentList[i] > 0) {
                     for (int j = 0; j < table.Count; ++j) {
-     //                   if (table[j][i] == )
+                        if (table[j][i] < 0) paths.Add(names[j]);
                     }
                 }
             }
+            return paths;
         }
 
-        // private List<string> DFS(string first, string last) {
-            
-            
-        //     if (marks[names.IndexOf(first)]) return;
-            
-        //     marks[names.IndexOf(first)] = true;
-        //     currentPath.Add(first);
-        //     if (marks[names.IndexOf(first)] == marks[names.IndexOf(last)]) {
-        //         simplePaths.Add(currentPath);
-        //         marks[names.IndexOf(first)] = false;
-        //         currentPath.RemoveAt(currentPath.Count - 1);
-        //         return;
-        //     }
-        //     for ()
+        public List<List<string>> getSimplePaths() {
+            return simplePaths;
+        }
 
-        // }
+        public void DFS(string first, string last) {
+            
+            
+            if (marks[names.IndexOf(first)]) return;
+            
+            marks[names.IndexOf(first)] = true;
+            currentPath.Add(first);
+            if (marks[names.IndexOf(first)] == marks[names.IndexOf(last)]) {
+                simplePaths.Add(currentPath);
+                marks[names.IndexOf(first)] = false;
+                currentPath.RemoveAt(currentPath.Count - 1);
+                return;
+            }
+            List<string> possiblePaths = this.PossiblePaths(first);
+            foreach (string elem in possiblePaths) {
+                DFS(elem, last);
+            }
+            currentPath.RemoveAt(currentPath.Count - 1);
+            marks[names.IndexOf(first)] = false;
+        }
 
         public void ShowGraph() {
             for (int i = 0; i < table.Count; ++i) {
-                //Console.Write(names[i]);
                 for (int j = 0; j < table[i].Count; ++j) {
                     Console.Write(Convert.ToString(table[i][j]) + " ");
                 }

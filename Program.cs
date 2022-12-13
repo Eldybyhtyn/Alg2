@@ -17,7 +17,11 @@ namespace Lol {
             hi.Add_E(1, 2, 1);
             hi.Add_E(2, 4, 1);
             hi.Add_E(1, 5, 1);
-            hi.ShowGraph();
+            hi.Add_E(5, 4, 1);
+            //hi.ShowGraph();
+            // hi.DFS("1", "3");
+            // System.Console.WriteLine(hi.getSimplePaths().Count);
+            System.Console.WriteLine(hi.FindSimplePath());
         }
 
 
