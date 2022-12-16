@@ -14,6 +14,47 @@ namespace Lol {
             countOfArsc = 0;
         }
 
+        public int First(string vertex_name) {
+            List<int> vertex_paths = table[names.IndexOf(vertex_name)];
+            int edge = 0, edge_value = 0;
+            for (int i = 0; i < vertex_paths.Count; ++i) {
+                if (vertex_paths[i] != 0) {
+                    edge = i;
+                    edge_value = vertex_paths[i];
+                    break;
+                }
+            }
+            if (edge == 0 && edge_value == 0) return -1;
+            for (int i = 0; i < table.Count; ++i) {
+                if (table[i][edge] == -edge_value) {
+                    return i;
+                }
+            }
+
+            return -1;
+
+        }
+
+        // public int Next(string vertex_name, int index) {
+        //     List<int> vertex_paths = table[names.IndexOf(vertex_name)];
+        //     List<int> vertices_index = new List<int>();
+        //     for (int i = 0; i < vertex_paths.Count; ++i) {
+        //         if (vertex_paths[i] != 0) {
+        //             edge = i;
+        //             edge_value = vertex_paths[i];
+        //             break;
+        //         }
+        //     }
+        //     if (edge == 0 && edge_value == 0) return -1;
+        //     for (int i = 0; i < table.Count; ++i) {
+        //         if (table[i][edge] == -edge_value) {
+        //             return i;
+        //         }
+        //     }
+
+        //     return -1;
+        // }
+
         public void Add_V(string name, bool newMark) {
             table.Add(new List<int>());
             names.Add(name);
