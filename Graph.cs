@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System;
 
 namespace Lol {
@@ -10,6 +11,7 @@ namespace Lol {
         List<bool> marks = new List<bool>();
         List<string> currentPath = new List<string>();
         List<List<string>> simplePaths = new List<List<string>>();
+        List<int> pathsWeight = new List<int>();
         public Graph() {
             countOfArsc = 0;
         }
@@ -35,25 +37,51 @@ namespace Lol {
 
         }
 
-        // public int Next(string vertex_name, int index) {
-        //     List<int> vertex_paths = table[names.IndexOf(vertex_name)];
-        //     List<int> vertices_index = new List<int>();
-        //     for (int i = 0; i < vertex_paths.Count; ++i) {
-        //         if (vertex_paths[i] != 0) {
-        //             edge = i;
-        //             edge_value = vertex_paths[i];
-        //             break;
-        //         }
-        //     }
-        //     if (edge == 0 && edge_value == 0) return -1;
-        //     for (int i = 0; i < table.Count; ++i) {
-        //         if (table[i][edge] == -edge_value) {
-        //             return i;
-        //         }
-        //     }
+        public int Next(string vertex_name, int index) {
+            List<int> vertex_paths = table[names.IndexOf(vertex_name)];
+            List<int> vertices_index = new List<int>();
+            List<int> vertices_values = new List<int>();
+            Dictionary<int, int> vertices_items = new Dictionary<int, int>();
+            for (int i = 0; i < vertex_paths.Count; ++i) {
+                if (vertex_paths[i] != 0) {
+                    vertices_items.Add(i, vertex_paths[i]);
+                }
+            }
+            if (vertices_items.Count == 0) return -1;
+            System.Console.WriteLine("hello");
+            foreach (KeyValuePair<int, int> elem in vertices_items) {
+                for (int i = 0; i < table.Count; ++i) {
+                    if (table[i][elem.Key] == -elem.Value && elem.Key > index) {
+                        return elem.Key;
+                    }
+                }
+            }
 
-        //     return -1;
-        // }
+            return -1;
+        }
+
+        public string Vertex(string vertex, int index) {
+            List<int> vertex_paths = table[names.IndexOf(vertex_name)];
+            Dictionary<int, int> vertices_items = new Dictionary<int, int>();
+            for (int i = 0; i < vertex_paths.Count; ++i) {
+                if (vertex_paths[i] != 0) {
+                    vertices_items.Add(i, vertex_paths[i]);
+                }
+            }
+            if (vertices_items.Count == 0) return -1;
+            List<int> indices = new List<int>();
+            foreach (KeyValuePair<int, int> elem in vertices_items) {
+                for (int i = 0; i < table.Count; ++i) {
+                    if (table[i][elem.Key] == -elem.Value) {
+                        indices.Add(i);
+                    }
+                }
+            }
+
+            return names[indices.IndexOf(index)];
+
+
+        }
 
         public void Add_V(string name, bool newMark) {
             table.Add(new List<int>());
@@ -61,10 +89,18 @@ namespace Lol {
             marks.Add(newMark);
         }
 
+        public void ShowPaths() {
+            foreach(int elem in pathsWeight) {
+                System.Console.Write(Convert.ToString(elem) + ' ');
+            }
+            System.Console.WriteLine();
+        }
+
         public void Add_E(int first, int second, int cost) {
             ++countOfArsc;
-            table[first - 1].Add(cost);
-            table[second - 1].Add(-cost);
+            table[first - 1].Add(1);
+            table[second - 1].Add(-1);
+            pathsWeight.Add(cost);
             for (int i = 0; i < table.Count; ++i) {
                 if (table[i].Count == countOfArsc) continue;
                 else table[i].Add(0);
